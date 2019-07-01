@@ -1,0 +1,134 @@
+.gallery{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: url('../img/gallery/bg.png') center no-repeat;
+  background-size: cover;
+}
+.gallery_list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+.gallery_list__item{
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+  border-bottom: 5px solid #3f84bd;
+  overflow: hidden;
+  .gallery_list__item__overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  h4{
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 0;
+  }
+  p{
+    font-size: 12px;
+    line-height: 1.4;
+    height: 35px;
+    overflow: hidden;
+  }
+  img{
+    object-fit: cover;
+    width: 100%;
+  }
+}
+.gallery__nain_btn{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.gallery_list__item__text{
+  position: absolute;
+  width: calc(100% - 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 55px;
+  color:white;
+  opacity: 0;
+}
+.gallery__btn{
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  bottom: 22px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.gallery_list__item:hover{
+  .gallery_list__item__overlay{
+    opacity: 1;
+  }
+  .gallery_list__item__text{
+    opacity: 1;
+  }
+  .gallery__btn{
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery{
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .gallery_list{
+    display: block;
+  }
+  .gallery .slick-dots{
+    bottom: -30px;
+  }
+  .gallery .slick-dots li button{
+    border: 1px solid #1e1d1d;
+  }
+  .gallery .slick-dots li.slick-active button{
+    border: 2px solid #3f84bd;
+  }
+  .gallery_list__item__text{
+    opacity: 1;
+    position: relative;
+    bottom: 0;
+    color:#1e1d1d;
+  }
+  .gallery_list__item{
+      border-bottom: none;
+      margin-bottom: 35px;
+      padding-bottom: 35px;
+      outline: none;
+      &:hover{
+        background: #3f84bd;
+        color:white;
+        .gallery_list__item__text{
+          color:white;
+        }
+        .gallery__btn{
+          color:white;
+          &::after{
+            transform: rotate(90deg);
+            background: url(../img/icons/menu_arrow_left.png) center no-repeat;
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
+      }
+    h4{
+      margin-top: 10px;
+    }
+    .gallery_list__item__overlay{
+      display: none;
+    }
+  }
+  .gallery__btn{
+
+  }
+}
